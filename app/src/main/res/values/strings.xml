@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">TileIsland</string>
     <string name="are_you_a_parent">Are you a parent? Click Here!!</string>
-    <string name="register_new_kid">New Player? Register Here!</string>
+    <string name="register_new_kid">New Kid? Register Here!</string>
     <string name="register_firstname">first name</string>
     <string name="register_lastname">last name</string>
     <string name="register_kid">Register !!</string>
@@ -10,7 +10,7 @@
     <string name="password">password</string>
     <string name="kid_registration">Kid\'s Registration</string>
     <string name="parents_profile">Parent\'s Profile</string>
-    <string name="kid_firstname">your child name</string>
+    <string name="kid_firstname">your child\'s name</string>
     <string name="kid_password">password</string>
     <string name="get_report">Get Report !</string>
 </resources>
