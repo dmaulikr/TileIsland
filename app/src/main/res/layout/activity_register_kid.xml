@@ -9,11 +9,19 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/register_player"
-    tools:context="com.example.android.tileisland.RegisterPlayer">
+    tools:context="com.example.android.tileisland.RegisterKid">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/kid_registration"
+        android:layout_alignParentRight="true"
+        android:textStyle="italic|bold"
+        android:textSize="25sp"/>
 
     <EditText
         android:id="@+id/etRegisterFirstName"
-        android:layout_width="250dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_marginTop="50dp"
@@ -23,7 +31,7 @@
 
     <EditText
         android:id="@+id/etRegisterLastName"
-        android:layout_width="250dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/etRegisterFirstName"
@@ -32,15 +40,27 @@
         android:background="@drawable/rounded_edittext"
         android:hint="@string/register_lastname"/>
 
+    <EditText
+        android:id="@+id/etRegisterPassword"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/etRegisterLastName"
+        android:layout_marginTop="20dp"
+        android:padding="5dip"
+        android:background="@drawable/rounded_edittext"
+        android:hint="@string/register_password"
+        android:inputType="textPassword"/>
+
     <Button
         android:id="@+id/bRegister"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/etRegisterLastName"
+        android:layout_below="@id/etRegisterPassword"
         android:layout_alignParentRight="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_register"
-        android:onClick="onRegisterClick"
-        android:text="@string/register_player"/>
+        android:onClick="onRegisterKidClick"
+        android:text="@string/register_kid"/>
 
 </RelativeLayout>

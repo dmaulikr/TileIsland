@@ -8,43 +8,56 @@
     tools:context="com.example.android.tileisland.MainActivity">
 
     <EditText
-        android:id="@+id/etPlayerName"
+        android:id="@+id/etKidName"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:padding="5dip"
         android:background="@drawable/rounded_edittext"
+        android:hint="@string/firstname"
         android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/etPassword"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/etKidName"
+        android:layout_marginTop="20dp"
+        android:padding="5dip"
+        android:background="@drawable/rounded_edittext"
+        android:hint="@string/password"
+        android:inputType="textPassword"/>
 
     <Button
         android:id="@+id/bPlay"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:layout_below="@id/etPlayerName"
+        android:layout_below="@id/etPassword"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/play_button"
         android:onClick="onPlayClick" />
 
     <Button
-        android:id="@+id/bNewPlayer"
+        android:id="@+id/bNewKid"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/bPlay"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:background="@drawable/button_newplayer_register_here"
+        android:background="@drawable/button_newkid_register_here"
         android:onClick="onNewPlayerClick"
-        android:text="@string/register_new_player"/>
+        android:text="@string/register_new_kid"/>
 
     <Button
         android:id="@+id/bParent"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/bNewPlayer"
+        android:layout_below="@id/bNewKid"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/button_are_you_a_parent"
         android:onClick="onParentClick"
         android:text="@string/are_you_a_parent"/>
