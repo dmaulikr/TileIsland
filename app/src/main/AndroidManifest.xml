@@ -17,22 +17,31 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterKid"
-                  android:screenOrientation="landscape"/>
-        <activity android:name=".WelcomeKid"
-                  android:screenOrientation="landscape"/>
-        <activity android:name=".ParentsActivity"
-                  android:screenOrientation="landscape"/>
-        <activity android:name=".GetKidReport"
-                  android:screenOrientation="landscape"/>
-        <activity android:name=".LevelOneStages"
-                  android:screenOrientation="landscape"/>
-        <activity android:name=".LevelOneStageOne"
-                  android:screenOrientation="landscape"/>
-        <activity android:name=".LevelOneStageTwo"
-                  android:screenOrientation="landscape"/>
-        <activity android:name=".LevelOneStageThree"
-                  android:screenOrientation="landscape"/>
+        <activity
+            android:name=".RegisterKid"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".WelcomeKid"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".ParentsActivity"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".GetKidReport"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".LevelOneStages"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".LevelOneStageOne"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".LevelOneStageTwo"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".LevelOneStageThree"
+            android:screenOrientation="landscape" />
+        <activity android:name=".Winning"></activity>
     </application>
 
 </manifest>
