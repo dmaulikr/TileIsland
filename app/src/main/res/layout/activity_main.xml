@@ -14,7 +14,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
         android:padding="5dip"
-        android:background="@drawable/rounded_edittext"/>
+        android:background="@drawable/rounded_edittext"
+        android:inputType="text"/>
 
     <Button
         android:id="@+id/bPlay"
@@ -33,7 +34,7 @@
         android:layout_below="@id/bPlay"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:background="@drawable/rounded_button1"
+        android:background="@drawable/button_newplayer_register_here"
         android:onClick="onNewPlayerClick"
         android:text="@string/register_new_player"/>
 
@@ -44,7 +45,7 @@
         android:layout_below="@id/bNewPlayer"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:background="@drawable/rounded_button2"
+        android:background="@drawable/button_are_you_a_parent"
         android:onClick="onParentClick"
         android:text="@string/are_you_a_parent"/>
 
