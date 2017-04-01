@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TileIsland</string>
+    <string name="are_you_a_parent">Are you a parent? Click Here!!</string>
+    <string name="register_new_player">New Player? Register Here!</string>
+</resources>
