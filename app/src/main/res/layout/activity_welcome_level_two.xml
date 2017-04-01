@@ -9,13 +9,13 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:background="@drawable/welcomekid_page"
-    tools:context="com.example.android.tileisland.WelcomeKid">
+    tools:context="com.example.android.tileisland.WelcomeLevelOne">
 
     <TextView
         android:id="@+id/tv_levelOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/lets_start_level1"
+        android:text="@string/lets_start_level2"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="60dp"
         android:textStyle="italic|bold"

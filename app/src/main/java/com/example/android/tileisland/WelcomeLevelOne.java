@@ -5,14 +5,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-public class WelcomeKid extends AppCompatActivity {
+public class WelcomeLevelOne extends AppCompatActivity {
 
     //TODO:add back button and functionality
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_welcome);
+        setContentView(R.layout.activity_welcome_level_one);
     }
 
     public void onPlayClick(View view) {

@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.android.tileisland.utils.KidsContract;
 import com.example.android.tileisland.utils.KidsContract.KidEntry;
 import com.example.android.tileisland.utils.KidsDBHelper;
 
@@ -42,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 // verify if the user exits
                 if (verifyKidExist(kidName)) {
 
-                    Intent intent = new Intent(MainActivity.this, WelcomeKid.class);
+                    Intent intent = new Intent(MainActivity.this, WelcomeLevelOne.class);
                     Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
 
                     /*//creates session for the logged in user

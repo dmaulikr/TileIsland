@@ -79,7 +79,7 @@ public class RegisterKid extends AppCompatActivity {
                         activityTracker = new ActivityTracker(getApplicationContext(), regUsernameStr);
                         activityTracker.updateActivity(regUsernameStr + " registered!");*/
                         // Student Registration is successful after passing all the validations
-                        Intent intent = new Intent(RegisterKid.this, WelcomeKid.class);
+                        Intent intent = new Intent(RegisterKid.this, WelcomeLevelOne.class);
                         startActivity(intent);
                     }
                 }

@@ -25,4 +25,5 @@
     <string name="moveleft">left</string>
     <string name="moveright">right</string>
     <string name="youwin">You Win!!</string>
+    <string name="lets_start_level2">Let\'s start level 2 !!</string>
 </resources>

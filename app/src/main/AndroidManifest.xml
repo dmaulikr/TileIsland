@@ -21,7 +21,7 @@
             android:name=".RegisterKid"
             android:screenOrientation="landscape" />
         <activity
-            android:name=".WelcomeKid"
+            android:name=".WelcomeLevelOne"
             android:screenOrientation="landscape" />
         <activity
             android:name=".ParentsActivity"
@@ -41,7 +41,12 @@
         <activity
             android:name=".LevelOneStageThree"
             android:screenOrientation="landscape" />
-        <activity android:name=".Winning"></activity>
+        <activity android:name=".Winning" />
+        <activity android:name=".WelcomeLevelTwo" />
+        <activity android:name=".LevelTwoStages" />
+        <activity android:name=".LevelTwoStageOne" />
+        <activity android:name=".LevelTwoStageTwo" />
+        <activity android:name=".LevelTwoStageThree"></activity>
     </application>
 
 </manifest>
