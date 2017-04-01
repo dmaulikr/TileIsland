@@ -9,4 +9,8 @@
     <string name="firstname">firstname</string>
     <string name="password">password</string>
     <string name="kid_registration">Kid\'s Registration</string>
+    <string name="parents_profile">Parent\'s Profile</string>
+    <string name="kid_firstname">your child name</string>
+    <string name="kid_password">password</string>
+    <string name="get_report">Get Report !</string>
 </resources>

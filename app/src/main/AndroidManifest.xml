@@ -18,7 +18,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".RegisterKid" />
-        <activity android:name=".WelcomeKid"></activity>
+        <activity android:name=".WelcomeKid" />
+        <activity android:name=".ParentsActivity" />
+        <activity android:name=".GetKidReport"></activity>
     </application>
 
 </manifest>

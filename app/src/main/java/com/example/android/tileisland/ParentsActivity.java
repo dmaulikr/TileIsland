@@ -13,36 +13,36 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.android.tileisland.utils.KidsContract;
-import com.example.android.tileisland.utils.KidsContract.KidEntry;
 import com.example.android.tileisland.utils.KidsDBHelper;
 
-public class MainActivity extends AppCompatActivity {
+
+public class ParentsActivity extends AppCompatActivity {
 
     private EditText etKidName;
-    private EditText etPassword;
+    private EditText etKidPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_parents);
 
-        etKidName = (EditText)findViewById(R.id.etName);
-        etPassword = (EditText)findViewById(R.id.etPassword);
+        etKidName = (EditText)findViewById(R.id.etKidName);
+        etKidPassword = (EditText)findViewById(R.id.etKidPassword);
     }
 
-    public void onPlayClick(View view) {
+    public void onGetReportClick(View view) {
         String kidName = etKidName.getText().toString().trim();
-        String password = etPassword.getText().toString().trim();
+        String password = etKidPassword.getText().toString().trim();
 
         // validate username and password
         if (verifyData(kidName, password)) {
 
-            if (view.getId() == R.id.bPlay) {
+            if (view.getId() == R.id.bGetReport) {
 
                 // verify if the user exits
                 if (verifyKidExist(kidName)) {
 
-                    Intent intent = new Intent(MainActivity.this, WelcomeKid.class);
+                    Intent intent = new Intent(ParentsActivity.this, GetKidReport.class);
                     Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
 
                     /*//creates session for the logged in user
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         } else {
 
             AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-            alertDialog.setMessage("User Name does not exist");
+            alertDialog.setMessage("Your kid is not registered here!");
             alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Ok", new DialogInterface.OnClickListener() {
 
                 @Override
@@ -83,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
             alertDialog.show();
 
         }
-
     }
 
     private boolean verifyKidExist(String kidName) {
@@ -96,8 +95,8 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
         //builds query to match the entered password and the stored password in the database with unique username
-        Cursor cursor = db.query(KidEntry.TABLE_NAME,
-                new String[]{KidEntry.COLUMN_PASSWORD},
+        Cursor cursor = db.query(KidsContract.KidEntry.TABLE_NAME,
+                new String[]{KidsContract.KidEntry.COLUMN_PASSWORD},
                 " firstname = ?",
                 new String[]{kidName},
                 null,
@@ -109,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
         if (cursor != null && cursor.getCount() > 0) {
 
             cursor.moveToFirst();
-            if (etPassword.equals(cursor.getString(0))) {
+            if (etKidPassword.equals(cursor.getString(0))) {
 
                 /*session.createUserLoginSession(uName);
 
@@ -127,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean verifyData(String kidName, String password) {
+
         Boolean isValid = true;
 
         //Validates Username
@@ -138,20 +138,10 @@ public class MainActivity extends AppCompatActivity {
         //Validates Password
         //String passwordPattern = "/^.{6,}$/";
         if (TextUtils.isEmpty(password)) {
-            etPassword.setError("Incorrect Password");
+            etKidPassword.setError("Incorrect Password");
             isValid = false;
         }
 
         return  isValid;
-    }
-
-    public void onNewPlayerClick(View view) {
-        Intent intent = new Intent(this,RegisterKid.class);
-        startActivity(intent);
-    }
-
-    public void onParentClick(View view) {
-        Intent intent = new Intent(this,ParentsActivity.class);
-        startActivity(intent);
     }
 }
