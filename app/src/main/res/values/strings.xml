@@ -13,4 +13,8 @@
     <string name="kid_firstname">your child\'s name</string>
     <string name="kid_password">password</string>
     <string name="get_report">Get Report !</string>
+    <string name="lets_start_level1">Let\'s start Level 1 !!</string>
+    <string name="levelOne_stageOne">1</string>
+    <string name="levelOne_stageTwo">2</string>
+    <string name="levelOne_stageThree">3</string>
 </resources>

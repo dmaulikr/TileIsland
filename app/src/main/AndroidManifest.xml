@@ -20,7 +20,11 @@
         <activity android:name=".RegisterKid" />
         <activity android:name=".WelcomeKid" />
         <activity android:name=".ParentsActivity" />
-        <activity android:name=".GetKidReport"></activity>
+        <activity android:name=".GetKidReport" />
+        <activity android:name=".LevelOneStages" />
+        <activity android:name=".LevelOneStageOne" />
+        <activity android:name=".LevelOneStageTwo" />
+        <activity android:name=".LevelOneStageThree"></activity>
     </application>
 
 </manifest>

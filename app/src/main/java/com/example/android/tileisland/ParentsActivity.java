@@ -18,6 +18,8 @@ import com.example.android.tileisland.utils.KidsDBHelper;
 
 public class ParentsActivity extends AppCompatActivity {
 
+    //TODO:add back button and functionality
+
     private EditText etKidName;
     private EditText etKidPassword;
 
