@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundone"
+    android:background="@drawable/bckleveltwostageone"
     tools:showIn="@layout/activity_level_two_stage_one"
     tools:context=".LevelTwoStageOne">
 
@@ -74,6 +74,12 @@
             android:layout_marginTop="90dp"
             android:background="@mipmap/ic_player"/>
 
+        <TextView
+            android:id="@+id/co_ordinate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text = "X:"
+            android:layout_below="@+id/player"/>
 
 
         <ImageView
@@ -103,6 +109,22 @@
             android:background="@mipmap/ic_path"/>
 
         <ImageView
+            android:id="@+id/stageone_coin1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="80dp"
+            android:layout_toRightOf="@+id/pathtile2"
+            android:background="@mipmap/ic_goldcoin"/>
+
+        <ImageView
+            android:id="@+id/stageone_block1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="80dp"
+            android:layout_toRightOf="@+id/pathtile2"
+            android:background="@drawable/block"/>
+
+        <ImageView
             android:id="@+id/pathtile4"
             android:layout_width="80dp"
             android:layout_height="80dp"
@@ -119,7 +141,7 @@
             android:background="@mipmap/ic_path"/>
 
         <ImageView
-            android:id="@+id/stageone_coin1"
+            android:id="@+id/stageone_coin2"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="255dp"
@@ -135,7 +157,7 @@
             android:background="@mipmap/ic_path"/>
 
         <ImageView
-            android:id="@+id/stageone_coin2"
+            android:id="@+id/stageone_coin3"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="335dp"
@@ -151,7 +173,7 @@
             android:background="@mipmap/ic_path"/>
 
         <ImageView
-            android:id="@+id/stageone_coin3"
+            android:id="@+id/stageone_coin4"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginLeft="415dp"

@@ -27,6 +27,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import static android.R.attr.animation;
+
 public class LevelTwoStageOne extends AppCompatActivity {
 
 
@@ -34,6 +36,7 @@ public class LevelTwoStageOne extends AppCompatActivity {
     EndDraggingLsntr myEndDraggingLsntr;
     Button playButton;
     ImageView player;
+    ImageView blocker;
     MediaPlayer waves;
     TextView coinsCollected, totalScore;
     int score;
@@ -51,6 +54,7 @@ public class LevelTwoStageOne extends AppCompatActivity {
 
         //buttons binding to the activity
         player = (ImageView) findViewById(R.id.player);
+        blocker = (ImageView) findViewById(R.id.stageone_block1);
         playButton = (Button) findViewById(R.id.playButton);
         findViewById(R.id.playButton).setOnLongClickListener(myStartDraggingLsntr);
         findViewById(R.id.moveUp).setOnLongClickListener(myStartDraggingLsntr);
@@ -78,8 +82,8 @@ public class LevelTwoStageOne extends AppCompatActivity {
     }
 
     //updating score simultaneously coins are collected
-    public void updateScore(){
-        score = coins*1000;
+    public void updateScore() {
+        score = coins * 1000;
         coinsCollected.setText(Integer.toString(coins));
         totalScore.setText(Integer.toString(score));
     }
@@ -119,16 +123,54 @@ public class LevelTwoStageOne extends AppCompatActivity {
         if (requiredActionSequence.equals(actionSequence)) {
 
             //move1
-            ObjectAnimator actionOneAnimation = ObjectAnimator.ofFloat(player, "translationX", 0f, 670f);
+            ObjectAnimator moveblock = ObjectAnimator.ofFloat(player, "translationX", 0f, 490f);
+            //move1
+            ObjectAnimator actionOneAnimation = ObjectAnimator.ofFloat(player, "translationX", 490f, 670f);
             //move2
             ObjectAnimator actionTwoAnimation = ObjectAnimator.ofFloat(player, "translationY", 0f, 480f);
             //move3
             ObjectAnimator actionThreeAnimation = ObjectAnimator.ofFloat(player, "translationX", 670f, 1340f);
             AnimatorSet set = new AnimatorSet();
-            set.setDuration(3000);
+            set.setDuration(4000);
             //animating all moves simultaneously
-            set.playSequentially(actionOneAnimation, actionTwoAnimation, actionThreeAnimation);
+            set.playSequentially(moveblock, actionOneAnimation, actionTwoAnimation, actionThreeAnimation);
             set.start();
+
+            moveblock.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    float imageXPosition = (Float) animation.getAnimatedValue();
+                    String position = String.format("X:%d", (int) imageXPosition);
+                    TextView positionTextView = (TextView) findViewById(R.id.co_ordinate);
+                    positionTextView.setText(position);
+                    if (imageXPosition > 280) {
+                        ObjectAnimator moveBlock = ObjectAnimator.ofFloat(blocker, "translationX", 0f, 230f);
+                        AnimatorSet block = new AnimatorSet();
+                        block.setDuration(4000);
+                        block.playSequentially(moveBlock);
+                        block.start();
+                    }
+
+                }
+            });
+
+            actionOneAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    float imageXPosition = (Float) animation.getAnimatedValue();
+                    if (imageXPosition >= 550) {
+                        //coin music
+                        waves.start();
+                        //collecting coins
+                        findViewById(R.id.stageone_coin1).setVisibility(View.INVISIBLE);
+                        //updating score
+                        coins = 1;
+                        updateScore();
+                    }
+                }
+            });
 
             actionThreeAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override
@@ -139,21 +181,12 @@ public class LevelTwoStageOne extends AppCompatActivity {
                         //coin music
                         waves.start();
                         //collecting coins
-                        findViewById(R.id.stageone_coin1).setVisibility(View.INVISIBLE);
-                        //updating score
-                        coins = 1;
-                        updateScore();
-                    }
-                    if ((int) imageXPosition >= 870) {
-                        //coin music
-                        waves.start();
-                        //collecting coins
                         findViewById(R.id.stageone_coin2).setVisibility(View.INVISIBLE);
                         //updating score
                         coins = 2;
                         updateScore();
                     }
-                    if ((int) imageXPosition >= 1120) {
+                    if ((int) imageXPosition >= 870) {
                         //coin music
                         waves.start();
                         //collecting coins
@@ -162,13 +195,22 @@ public class LevelTwoStageOne extends AppCompatActivity {
                         coins = 3;
                         updateScore();
                     }
+                    if ((int) imageXPosition >= 1120) {
+                        //coin music
+                        waves.start();
+                        //collecting coins
+                        findViewById(R.id.stageone_coin4).setVisibility(View.INVISIBLE);
+                        //updating score
+                        coins = 4;
+                        updateScore();
+                    }
                     if ((int) imageXPosition == 1340) {
                         // Dailouge for playing again the same level or next level
                         AlertDialog.Builder alertadd = new AlertDialog.Builder(LevelTwoStageOne.this);
                         LayoutInflater factory = LayoutInflater.from(LevelTwoStageOne.this);
                         final View youwin = factory.inflate(R.layout.activity_winning, null);
                         alertadd.setView(youwin);
-                        alertadd.setMessage("Score: "+ score);
+                        alertadd.setMessage("Score: " + score);
                         alertadd.setPositiveButton("Play Again!", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dlg, int something) {
                                 Intent intent = new Intent(LevelTwoStageOne.this, LevelTwoStageOne.class);
@@ -208,7 +250,7 @@ public class LevelTwoStageOne extends AppCompatActivity {
     // Restarts the same activity
     public void onStopClick(View view) {
 
-        Intent intent = new Intent(this,LevelOneStageOne.class);
+        Intent intent = new Intent(this, LevelOneStageOne.class);
         startActivity(intent);
 
     }

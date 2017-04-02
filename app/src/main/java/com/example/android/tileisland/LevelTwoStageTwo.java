@@ -103,9 +103,9 @@ public class LevelTwoStageTwo extends AppCompatActivity {
         ArrayList<String> actionSequence = new ArrayList<String>();
         actionSequence.add(moveOne);
         actionSequence.add(moveTwo);
-        actionSequence.add(moveThree);
+        /*actionSequence.add(moveThree);
         actionSequence.add(moveFour);
-        actionSequence.add(moveFive);
+        actionSequence.add(moveFive);*/
         return actionSequence;
     }
 
@@ -117,28 +117,28 @@ public class LevelTwoStageTwo extends AppCompatActivity {
         //required sequence defined in the list
         ArrayList<String> requiredActionSequence = new ArrayList<String>();
         requiredActionSequence.add("right");
+        requiredActionSequence.add("up");
+        /*requiredActionSequence.add("right");
         requiredActionSequence.add("down");
         requiredActionSequence.add("right");
-        requiredActionSequence.add("down");
-        requiredActionSequence.add("right");
-
+*/
         // checks if the reqired and selected sequence is correct
         if (requiredActionSequence.equals(actionSequence)) {
 
-            ObjectAnimator actionOneAnimation = ObjectAnimator.ofFloat(player, "translationX", 0f, 430f);
-            ObjectAnimator actionTwoAnimation = ObjectAnimator.ofFloat(player, "translationY", 0f, 240f);
-            ObjectAnimator actionThreeAnimation = ObjectAnimator.ofFloat(player, "translationX", 430f, 670f);
+            ObjectAnimator actionOneAnimation = ObjectAnimator.ofFloat(player, "translationX", 0f, 330f);
+            ObjectAnimator actionTwoAnimation = ObjectAnimator.ofFloat(player, "translationY", 330f, 0f);
+            /*ObjectAnimator actionThreeAnimation = ObjectAnimator.ofFloat(player, "translationX", 430f, 670f);
             ObjectAnimator actionFourAnimation = ObjectAnimator.ofFloat(player, "translationY", 240f, 474f);
-            ObjectAnimator actionFiveAnimation = ObjectAnimator.ofFloat(player, "translationX", 670f, 1340f);
+            ObjectAnimator actionFiveAnimation = ObjectAnimator.ofFloat(player, "translationX", 670f, 1340f);*/
             set = new AnimatorSet();
             set.setDuration(3000);
 
             //animating all moves simultaneously
             set.playSequentially(actionOneAnimation,
-                    actionTwoAnimation,
-                    actionThreeAnimation,
+                    actionTwoAnimation
+                    /*actionThreeAnimation,
                     actionFourAnimation,
-                    actionFiveAnimation);
+                    actionFiveAnimation*/);
             set.start();
             actionTwoAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(){
 
@@ -157,7 +157,7 @@ public class LevelTwoStageTwo extends AppCompatActivity {
 
                 }
             });
-            actionFiveAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            /*actionFiveAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
 
                 @Override
                 public void onAnimationUpdate(ValueAnimator animation) {
@@ -219,7 +219,7 @@ public class LevelTwoStageTwo extends AppCompatActivity {
                     }
                 }
 
-            });
+            });*/
 
         } else {
             AlertDialog alertDialog = new AlertDialog.Builder(this).create();

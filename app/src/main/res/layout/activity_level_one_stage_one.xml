@@ -9,7 +9,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundone"
+    android:background="@drawable/bcklevelonestageone"
     tools:showIn="@layout/activity_level_one_stage_one"
     tools:context=".LevelOneStageOne">
 
