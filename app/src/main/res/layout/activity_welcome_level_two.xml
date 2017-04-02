@@ -8,11 +8,11 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@drawable/welcomekid_page"
-    tools:context="com.example.android.tileisland.WelcomeLevelOne">
+    android:background="@drawable/welcome_page_level2"
+    tools:context="com.example.android.tileisland.WelcomeLevelTwo">
 
     <TextView
-        android:id="@+id/tv_levelOne"
+        android:id="@+id/tv_levelTwo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/lets_start_level2"
@@ -25,7 +25,7 @@
         android:id="@+id/bPlay"
         android:layout_width="200dp"
         android:layout_height="100dp"
-        android:layout_below="@id/tv_levelOne"
+        android:layout_below="@id/tv_levelTwo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="@drawable/play"

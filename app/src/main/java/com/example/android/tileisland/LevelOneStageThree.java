@@ -244,9 +244,15 @@ public class LevelOneStageThree extends AppCompatActivity {
                                 startActivity(intent);
                             }
                         });
-                        alertadd.setNegativeButton("End Game!", new DialogInterface.OnClickListener() {
+                        alertadd.setNegativeButton("PlayAgain Level 1!", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dlg, int something) {
                                 Intent intent = new Intent(LevelOneStageThree.this, WelcomeLevelOne.class);
+                                startActivity(intent);
+                            }
+                        });
+                        alertadd.setPositiveButton("GoTo Level 2! ", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dlg, int something) {
+                                Intent intent = new Intent(LevelOneStageThree.this, WelcomeLevelTwo.class);
                                 startActivity(intent);
                             }
                         });

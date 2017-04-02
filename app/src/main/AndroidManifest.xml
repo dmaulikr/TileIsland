@@ -41,12 +41,24 @@
         <activity
             android:name=".LevelOneStageThree"
             android:screenOrientation="landscape" />
-        <activity android:name=".Winning" />
-        <activity android:name=".WelcomeLevelTwo" />
-        <activity android:name=".LevelTwoStages" />
-        <activity android:name=".LevelTwoStageOne" />
-        <activity android:name=".LevelTwoStageTwo" />
-        <activity android:name=".LevelTwoStageThree"></activity>
+        <activity
+            android:name=".Winning"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".WelcomeLevelTwo"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".LevelTwoStages"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".LevelTwoStageOne"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".LevelTwoStageTwo"
+            android:screenOrientation="landscape" />
+        <activity
+            android:name=".LevelTwoStageThree"
+            android:screenOrientation="landscape" />
     </application>
 
 </manifest>

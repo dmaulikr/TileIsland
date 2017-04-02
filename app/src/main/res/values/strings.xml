@@ -26,4 +26,7 @@
     <string name="moveright">right</string>
     <string name="youwin">You Win!!</string>
     <string name="lets_start_level2">Let\'s start level 2 !!</string>
+    <string name="levelTwo_stageOne">1</string>
+    <string name="levelTwo_stageTwo">2</string>
+    <string name="levelTwo_stageThree">3</string>
 </resources>

@@ -1,13 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_level_two_stages"
+    android:id="@+id/activity_level_one_stages"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/levelonestages"
     tools:context="com.example.android.tileisland.LevelTwoStages">
+
+    <Button
+        android:id="@+id/blevelTwo_stageOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="50dp"
+        android:background="@null"
+        android:text="@string/levelTwo_stageOne"
+        android:textSize="80sp"
+        android:textStyle="bold"
+        android:onClick="onLevelTwoStageOneClick" />
+    <Button
+        android:id="@+id/blevelTwo_stageTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/blevelTwo_stageOne"
+        android:layout_centerHorizontal="true"
+        android:background="@null"
+        android:textSize="80sp"
+        android:textStyle="bold"
+        android:text="@string/levelTwo_stageTwo"
+        android:onClick="onLevelTwoStageTwoClick" />
+    <Button
+        android:id="@+id/blevelTwo_stageThree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/blevelTwo_stageTwo"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50dp"
+        android:background="@null"
+        android:textSize="80sp"
+        android:textStyle="bold"
+        android:text="@string/levelTwo_stageThree"
+        android:onClick="onLevelTwoStageThreeClick" />
 
 </RelativeLayout>
