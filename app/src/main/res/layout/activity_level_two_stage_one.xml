@@ -1,13 +1,246 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_level_two_stage_one"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.android.tileisland.LevelTwoStageOne">
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundone"
+    tools:showIn="@layout/activity_level_two_stage_one"
+    tools:context=".LevelTwoStageOne">
 
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/ic_arrow_back_white_24dp"
+            android:onClick="onBackClick" />
+
+        <TextView
+            android:id="@+id/coinsCollectedLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="410dp"
+            android:layout_marginTop="80dp"
+            android:text="@string/coinlabel"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/coinsCollected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="470dp"
+            android:layout_marginTop="80dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/scoreLbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="410dp"
+            android:layout_marginTop="100dp"
+            android:text="@string/scorelabel"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="470dp"
+            android:layout_marginTop="100dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="17sp"
+            android:textStyle="bold"/>
+
+        <ImageView
+            android:id="@+id/player"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="26dp"
+            android:layout_marginTop="90dp"
+            android:background="@mipmap/ic_player"/>
+
+
+
+        <ImageView
+            android:id="@+id/pathtile1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="80dp"
+            android:background="@mipmap/ic_path"/>
+
+
+
+        <ImageView
+            android:id="@+id/pathtile2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="80dp"
+            android:layout_toRightOf="@+id/pathtile1"
+            android:background="@mipmap/ic_path"/>
+
+        <ImageView
+            android:id="@+id/pathtile3"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="80dp"
+            android:layout_toRightOf="@+id/pathtile2"
+            android:background="@mipmap/ic_path"/>
+
+        <ImageView
+            android:id="@+id/pathtile4"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="240dp"
+            android:layout_below="@+id/pathtile3"
+            android:background="@mipmap/ic_path"/>
+
+        <ImageView
+            android:id="@+id/pathtile5"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginLeft="240dp"
+            android:layout_below="@+id/pathtile4"
+            android:background="@mipmap/ic_path"/>
+
+        <ImageView
+            android:id="@+id/stageone_coin1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="255dp"
+            android:layout_marginTop="255dp"
+            android:background="@mipmap/ic_goldcoin"/>
+
+        <ImageView
+            android:id="@+id/pathtile6"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="239dp"
+            android:layout_toRightOf="@+id/pathtile5"
+            android:background="@mipmap/ic_path"/>
+
+        <ImageView
+            android:id="@+id/stageone_coin2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="335dp"
+            android:layout_marginTop="255dp"
+            android:background="@mipmap/ic_goldcoin"/>
+
+        <ImageView
+            android:id="@+id/pathtile7"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="239dp"
+            android:layout_toRightOf="@+id/pathtile6"
+            android:background="@mipmap/ic_path"/>
+
+        <ImageView
+            android:id="@+id/stageone_coin3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="415dp"
+            android:layout_marginTop="255dp"
+            android:background="@mipmap/ic_goldcoin"/>
+
+        <Button
+            android:id="@+id/firstAction"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="26dp"
+            android:layout_marginRight="3dp"
+            android:layout_toRightOf="@+id/backBtn"
+            android:background="@drawable/mybutton_backgroud"
+            android:text="@string/blank" />
+
+        <Button
+            android:id="@+id/secondAction"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="3dp"
+            android:layout_toRightOf="@+id/firstAction"
+            android:background="@drawable/mybutton_backgroud"
+            android:text="@string/blank" />
+
+        <Button
+            android:id="@+id/thirdAction"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginRight="3dp"
+            android:layout_toRightOf="@+id/secondAction"
+            android:background="@drawable/mybutton_backgroud"
+            android:text="@string/blank" />
+
+        <Button
+            android:id="@+id/moveUp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_toLeftOf="@+id/moveDown"
+            android:background="@drawable/ic_arrow_upward_black_24dp"
+            android:contentDescription="@string/moveup" />
+
+        <Button
+            android:id="@+id/moveDown"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_toLeftOf="@+id/moveLeft"
+            android:background="@drawable/ic_arrow_downward_black_24dp"
+            android:contentDescription="@string/movedown" />
+
+        <Button
+            android:id="@+id/moveLeft"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_toLeftOf="@+id/moveRight"
+            android:background="@drawable/ic_arrow_back_black_24dp"
+            android:contentDescription="@string/moveleft" />
+
+        <Button
+            android:id="@+id/moveRight"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_toLeftOf="@+id/playButton"
+            android:background="@drawable/ic_arrow_forward_black_24dp"
+            android:contentDescription="@string/moveright"/>
+
+        <Button
+            android:id="@+id/playButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_toLeftOf="@+id/pauseButton"
+            android:background="@mipmap/ic_play_circle_filled_black_24dp"
+            android:onClick="onPlayClick" />
+
+        <Button
+            android:id="@+id/pauseButton"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:background="@mipmap/ic_stop_black_24dp"
+            android:onClick="onStopClick" />
+
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:background="@mipmap/ic_exit"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:onClick="onExitClick"/>
+
+    </RelativeLayout>
+</LinearLayout>
