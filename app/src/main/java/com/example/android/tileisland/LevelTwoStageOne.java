@@ -43,7 +43,7 @@ public class LevelTwoStageOne extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_level_one_stage_one);
+        setContentView(R.layout.activity_level_two_stage_one);
 
         //listeners for drag and drop
         myStartDraggingLsntr = new StartDraggingLsntr();
