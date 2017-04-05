@@ -29,6 +29,9 @@ import java.util.ArrayList;
 
 public class LevelOneStageOne extends AppCompatActivity {
 
+    // User Session Manager Class
+    UserSessionManagement session;
+    ActivityTracker activityTracker;
 
     StartDraggingLsntr myStartDraggingLsntr;
     EndDraggingLsntr myEndDraggingLsntr;
@@ -38,12 +41,19 @@ public class LevelOneStageOne extends AppCompatActivity {
     TextView coinsCollected, totalScore;
     int score;
     int coins;
+    String logInKid;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_one_stage_one);
+
+        // Session class instance
+        session = new UserSessionManagement(getApplicationContext());
+
+        logInKid = session.getUserDetails();
+
 
         //listeners for drag and drop
         myStartDraggingLsntr = new StartDraggingLsntr();
@@ -163,6 +173,9 @@ public class LevelOneStageOne extends AppCompatActivity {
                         updateScore();
                     }
                     if ((int) imageXPosition == 1340) {
+
+                        activityTracker = new ActivityTracker(getApplicationContext(), logInKid);
+                        activityTracker.updateActivity("LevelOneStageOne", String.valueOf(score));
                         // Dailouge for playing again the same level or next level
                         AlertDialog.Builder alertadd = new AlertDialog.Builder(LevelOneStageOne.this);
                         LayoutInflater factory = LayoutInflater.from(LevelOneStageOne.this);
@@ -192,9 +205,11 @@ public class LevelOneStageOne extends AppCompatActivity {
             });
 
         } else {
+            activityTracker = new ActivityTracker(getApplicationContext(), logInKid);
+            activityTracker.updateActivity("LevelOneStageOne", String.valueOf(score));
             AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-            alertDialog.setMessage("Please select correct sequence!");
-            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Ok", new DialogInterface.OnClickListener() {
+            alertDialog.setMessage("Unsuccessful attempt!");
+            alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Re-attempt", new DialogInterface.OnClickListener() {
 
                 @Override
                 public void onClick(DialogInterface dialog, int which) {

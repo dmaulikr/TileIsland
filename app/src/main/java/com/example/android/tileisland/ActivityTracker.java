@@ -8,7 +8,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
+
+import static com.example.android.tileisland.R.id.score;
 
 
 public class ActivityTracker {
@@ -25,7 +28,7 @@ public class ActivityTracker {
     // Shared pref mode
     int PRIVATE_MODE = 0;
 
-    private static Integer count = 0;
+    private static Integer count = 1;
 
     // Sharedpref file name
     private static final String SHARED_ACTIVITY_FILENAME = "KidsReport";
@@ -38,17 +41,17 @@ public class ActivityTracker {
 
     }
 
-    public void updateActivity(String activity) {
+    public void updateActivity(String stage, String score) {
         //Using Shared Preference
-        String currentDateTimeStr = DateFormat.getDateTimeInstance().format(new Date());
-        editor.putString("Activity_" + ActivityTracker.count++, currentDateTimeStr + ": " + activity);
+        //String currentDateTimeStr = DateFormat.getDateTimeInstance().format(new Date());
+        editor.putString(stage + "_attempt" + ActivityTracker.count++, score);
         editor.commit();
     }
 
     /*
      * Get stored session data
      */
-    public static String getListFromSP(Context context, String userName, String key) {
+    public static ArrayList<String> getListFromSP(Context context, String userName, String key) {
 
         SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_ACTIVITY_FILENAME + "_" + userName,
                 Context.MODE_PRIVATE);
@@ -61,20 +64,51 @@ public class ActivityTracker {
                 lst.add((String) map.get(str));
         }
 
-        Collections.sort(lst, new Comparator<String>() {
+        /*Collections.sort(lst, new Comparator<String>() {
             @Override
             public int compare(String s1, String s2) {
                 return s1.compareToIgnoreCase(s2);
             }
-        });
+        });*/
 
-        for (String str : lst) {
+       /* for (String str : lst) {
             if (builder.length() > 0) {
                 builder.append("\n");
             }
             builder.append(str);
+        }*/
+
+        //return builder.toString();
+        return lst;
+    }
+
+    public static ArrayList<String> getAllScores(Context context, String userName) {
+
+        SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_ACTIVITY_FILENAME + "_" + userName,
+                Context.MODE_PRIVATE);
+        Map<String, ?> map = sharedPreferences.getAll();
+        ArrayList<String> lst = new ArrayList<>();
+        StringBuilder builder = new StringBuilder();
+
+        for (String str : map.keySet()) {
+            lst.add((String) map.get(str));
         }
 
-        return builder.toString();
+        /*Collections.sort(lst, new Comparator<String>() {
+            @Override
+            public int compare(String s1, String s2) {
+                return s1.compareToIgnoreCase(s2);
+            }
+        });*/
+
+       /* for (String str : lst) {
+            if (builder.length() > 0) {
+                builder.append("\n");
+            }
+            builder.append(str);
+        }*/
+
+        //return builder.toString();
+        return lst;
     }
 }

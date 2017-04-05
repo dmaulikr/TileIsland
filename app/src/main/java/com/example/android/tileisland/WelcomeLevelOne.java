@@ -17,7 +17,7 @@ public class WelcomeLevelOne extends AppCompatActivity {
 
     public void onPlayClick(View view) {
         //TODO: change to LevelOneStages.class
-        Intent intent = new Intent(this,LevelTwoStages.class);
+        Intent intent = new Intent(this,LevelOneStages.class);
         startActivity(intent);
     }
 }

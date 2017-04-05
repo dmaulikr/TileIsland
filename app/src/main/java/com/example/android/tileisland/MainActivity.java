@@ -17,13 +17,21 @@ import com.example.android.tileisland.utils.KidsDBHelper;
 
 public class MainActivity extends AppCompatActivity {
 
+    // User Session Manager Class
+    UserSessionManagement session;
+    // User Activity Tracker Class
+    ActivityTracker activityTracker;
+
     private EditText etKidName;
     private EditText etPassword;
-
+    String signInKid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // UserSession Manager
+        session = new UserSessionManagement(getApplicationContext());
 
         etKidName = (EditText)findViewById(R.id.etName);
         etPassword = (EditText)findViewById(R.id.etPassword);
@@ -44,12 +52,8 @@ public class MainActivity extends AppCompatActivity {
                     Intent intent = new Intent(MainActivity.this, WelcomeLevelOne.class);
                     Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
 
-                    /*//creates session for the logged in user
-                    signInUser = session.createUserLoginSession(signInUsernameStr);
-
-                    //updating the activity tracking file
-                    activityTracker = new ActivityTracker(getApplicationContext(), signInUser);
-                    activityTracker.updateActivity(signInUser + " signed in!");*/
+                    //creates session for the logged in user
+                    signInKid = session.createUserLoginSession(kidName);
 
                     startActivity(intent);
 
@@ -110,10 +114,7 @@ public class MainActivity extends AppCompatActivity {
             cursor.moveToFirst();
             if (etPassword.equals(cursor.getString(0))) {
 
-                /*session.createUserLoginSession(uName);
-
-                activityTracker = new ActivityTracker(getApplicationContext(), uName);
-                activityTracker.updateActivity(uName + " signed in!");*/
+                session.createUserLoginSession(kidName);
 
             }
 

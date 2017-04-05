@@ -8,6 +8,34 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context="com.example.android.tileisland.GetKidReport">
+
+    <TextView
+        android:id="@+id/get_report_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:gravity="top"
+        android:textSize="17sp"/>
+
+    <TextView
+        android:id="@+id/successful_attempt_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical"
+        android:layout_below="@+id/get_report_textView"
+        android:layout_marginTop="100dp"
+        android:gravity="top"
+        android:textSize="17sp"/>
+
+    <TextView
+        android:id="@+id/total_attempt_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/successful_attempt_textView"
+        android:scrollbars="vertical"
+        android:gravity="top"
+        android:textSize="17sp"/>
 
 </RelativeLayout>
