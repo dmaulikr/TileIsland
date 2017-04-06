@@ -39,8 +39,10 @@ public class GetKidReport extends AppCompatActivity {
     private TextView textView;
     private TextView successAttempt;
     private TextView totalAttempt;
+    private TextView failAttempt;
     private Integer successfullAttempt = 0;
     private Integer totalAttempts = 0;
+    private Integer failedAttempt;
     private Integer score;
     private String logInKid;
     @Override
@@ -57,6 +59,7 @@ public class GetKidReport extends AppCompatActivity {
 
         textView = (TextView) findViewById(R.id.get_report_textView);
         successAttempt = (TextView)findViewById(R.id.successful_attempt_textView);
+        failAttempt = (TextView) findViewById(R.id.failed_attempt_textView);
         totalAttempt = (TextView)findViewById(R.id.total_attempt_textView);
 
         getKidReport();
@@ -94,11 +97,13 @@ public class GetKidReport extends AppCompatActivity {
             builder.append(str);
             //textView.setMovementMethod(new ScrollingMovementMethod());
             //textView.setText(builder.toString());
+            failedAttempt = totalAttempts - successfullAttempt;
         }
         successAttempt.setText("Successfull Attempts : "+successfullAttempt);
+        failAttempt.setText("Failed Attempts : "+ failedAttempt);
         totalAttempt.setText("Total Attempts : "+totalAttempts);
 
-        float[] values = {successfullAttempt,totalAttempts};
+        float[] values = {successfullAttempt,failedAttempt};
         RelativeLayout relative=(RelativeLayout) findViewById(R.id.activity_get_kid_report);
         values=calculateData(values);
         relative.addView(new MyGraphView(this,values));
@@ -109,7 +114,7 @@ public class GetKidReport extends AppCompatActivity {
                private Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG);
         private float[] value_degree;
         private int[] COLORS={Color.GREEN,Color.RED};
-        RectF rectf = new RectF (10, 10, 200, 200);
+        RectF rectf = new RectF (100, 100, 600, 600);
         int temp=0;
         public MyGraphView(Context context, float[] values) {
 
