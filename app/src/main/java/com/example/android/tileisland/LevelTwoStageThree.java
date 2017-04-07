@@ -25,8 +25,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import static android.R.attr.animation;
-
 
 public class LevelTwoStageThree extends AppCompatActivity {
 
@@ -114,7 +112,7 @@ public class LevelTwoStageThree extends AppCompatActivity {
         String moveOne = (String) findViewById(R.id.firstAction).getContentDescription();
         String moveTwo = (String) findViewById(R.id.secondAction).getContentDescription();
 
-        ArrayList<String> actionSequenceOne = new ArrayList<String>();
+        ArrayList<String> actionSequenceOne = new ArrayList<>();
         actionSequenceOne.add(moveOne);
         actionSequenceOne.add(moveTwo);
         return actionSequenceOne;
@@ -127,7 +125,7 @@ public class LevelTwoStageThree extends AppCompatActivity {
         String moveTwo = (String) findViewById(R.id.secondAction).getContentDescription();
         String moveThree = (String) findViewById(R.id.thirdAction).getContentDescription();
 
-        ArrayList<String> actionSequenceTwo = new ArrayList<String>();
+        ArrayList<String> actionSequenceTwo = new ArrayList<>();
         actionSequenceTwo.add(moveOne);
         actionSequenceTwo.add(moveTwo);
         actionSequenceTwo.add(moveThree);
@@ -142,7 +140,7 @@ public class LevelTwoStageThree extends AppCompatActivity {
         String moveThree = (String) findViewById(R.id.thirdAction).getContentDescription();
         String moveFour = (String) findViewById(R.id.fourthAction).getContentDescription();
 
-        ArrayList<String> actionSequenceThree = new ArrayList<String>();
+        ArrayList<String> actionSequenceThree = new ArrayList<>();
         actionSequenceThree.add(moveOne);
         actionSequenceThree.add(moveTwo);
         actionSequenceThree.add(moveThree);
@@ -159,7 +157,7 @@ public class LevelTwoStageThree extends AppCompatActivity {
         String moveFour = (String) findViewById(R.id.fourthAction).getContentDescription();
         String moveFive = (String) findViewById(R.id.fifthAction).getContentDescription();
 
-        ArrayList<String> actionSequenceFour= new ArrayList<String>();
+        ArrayList<String> actionSequenceFour= new ArrayList<>();
         actionSequenceFour.add(moveOne);
         actionSequenceFour.add(moveTwo);
         actionSequenceFour.add(moveThree);
@@ -173,7 +171,7 @@ public class LevelTwoStageThree extends AppCompatActivity {
 
         ArrayList<String> actionSequenceOne = getActionSequenceOne();
         //required sequence defined in the list
-        ArrayList<String> requiredActionSequenceOne = new ArrayList<String>();
+        ArrayList<String> requiredActionSequenceOne = new ArrayList<>();
         requiredActionSequenceOne.add("down");
         requiredActionSequenceOne.add("right");
 
@@ -186,7 +184,7 @@ public class LevelTwoStageThree extends AppCompatActivity {
 
         ArrayList<String> actionSequenceThree = getActionSequenceThree();
         //required sequence defined in the list
-        ArrayList<String> requiredActionSequenceThree = new ArrayList<String>();
+        ArrayList<String> requiredActionSequenceThree = new ArrayList<>();
         requiredActionSequenceThree.add("down");
         requiredActionSequenceThree.add("right");
         requiredActionSequenceThree.add("down");
@@ -194,7 +192,7 @@ public class LevelTwoStageThree extends AppCompatActivity {
 
         ArrayList<String> actionSequenceFour = getActionSequenceFour();
         //required sequence defined in the list
-        ArrayList<String> requiredActionSequenceFour = new ArrayList<String>();
+        ArrayList<String> requiredActionSequenceFour = new ArrayList<>();
         requiredActionSequenceFour.add("right");
         requiredActionSequenceFour.add("down");
         requiredActionSequenceFour.add("left");

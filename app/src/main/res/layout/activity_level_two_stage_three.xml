@@ -524,7 +524,7 @@
             android:layout_height="60dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:background="@mipmap/ic_exit"
+            android:background="@drawable/ic_exit"
             android:onClick="onExitClick" />
 
     </RelativeLayout>

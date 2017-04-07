@@ -9,6 +9,7 @@ package com.example.android.tileisland;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -107,6 +108,13 @@ public class GetKidReport extends AppCompatActivity {
         RelativeLayout relative=(RelativeLayout) findViewById(R.id.activity_get_kid_report);
         values=calculateData(values);
         relative.addView(new MyGraphView(this,values));
+    }
+
+    public void onExitClick(View view) {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
+        finish();
+        System.exit(0);
     }
 
     public class MyGraphView extends View {
