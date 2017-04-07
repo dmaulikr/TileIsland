@@ -66,7 +66,7 @@
             android:textStyle="bold"/>
 
         <ImageView
-            android:id="@+id/stagetwo_extrapoints_score"
+            android:id="@+id/stagetwo_getExtraPoints"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginLeft="450dp"
@@ -74,7 +74,7 @@
             android:background="@drawable/extrapoint"/>
 
         <TextView
-            android:id="@+id/extrapoints_score"
+            android:id="@+id/extraPoints_score"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="510dp"

@@ -73,7 +73,7 @@ public class LevelTwoStageTwo extends AppCompatActivity {
         extra = 0;
         coinsCollected = (TextView) findViewById(R.id.coinsCollected);
         totalScore = (TextView) findViewById(R.id.score);
-        extraScore = (TextView) findViewById(R.id.extrapoints_score);
+        extraScore = (TextView) findViewById(R.id.extraPoints_score);
         updateScore();
 
         //initializing music for coin pickup
