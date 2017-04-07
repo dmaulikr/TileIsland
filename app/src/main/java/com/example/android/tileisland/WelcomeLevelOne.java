@@ -7,8 +7,6 @@ import android.view.View;
 
 public class WelcomeLevelOne extends AppCompatActivity {
 
-    //TODO:add back button and functionality
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,7 +14,6 @@ public class WelcomeLevelOne extends AppCompatActivity {
     }
 
     public void onPlayClick(View view) {
-        //TODO: change to LevelOneStages.class
         Intent intent = new Intent(this,LevelOneStages.class);
         startActivity(intent);
     }

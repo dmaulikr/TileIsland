@@ -18,8 +18,6 @@ import com.example.android.tileisland.utils.KidsDBHelper;
 
 public class RegisterKid extends AppCompatActivity {
 
-    //TODO:add back button and functionality
-
     // User Session Manager Class
     UserSessionManagement session;
     // User Activity Tracker Class
@@ -164,5 +162,10 @@ public class RegisterKid extends AppCompatActivity {
 
         db.close();
         return newRowId;
+    }
+
+    public void onBackClick(View view) {
+        Intent intent = new Intent(this,MainActivity.class);
+        startActivity(intent);
     }
 }

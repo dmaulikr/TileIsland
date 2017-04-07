@@ -7,8 +7,6 @@ import android.view.View;
 
 public class LevelOneStages extends AppCompatActivity {
 
-    //TODO:add back button and functionality
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

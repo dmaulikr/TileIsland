@@ -18,8 +18,6 @@ import com.example.android.tileisland.utils.KidsDBHelper;
 
 public class ParentsActivity extends AppCompatActivity {
 
-    //TODO:add back button and functionality
-
     private EditText etKidName;
     private EditText etKidPassword;
 
@@ -45,15 +43,6 @@ public class ParentsActivity extends AppCompatActivity {
                 if (verifyKidExist(kidName)) {
 
                     Intent intent = new Intent(ParentsActivity.this, GetKidReport.class);
-                    Toast.makeText(getApplicationContext(), "Login Successful", Toast.LENGTH_SHORT).show();
-
-                    /*//creates session for the logged in user
-                    signInUser = session.createUserLoginSession(signInUsernameStr);
-
-                    //updating the activity tracking file
-                    activityTracker = new ActivityTracker(getApplicationContext(), signInUser);
-                    activityTracker.updateActivity(signInUser + " signed in!");*/
-
                     startActivity(intent);
 
                 } else {
@@ -111,11 +100,6 @@ public class ParentsActivity extends AppCompatActivity {
 
             cursor.moveToFirst();
             if (etKidPassword.equals(cursor.getString(0))) {
-
-                /*session.createUserLoginSession(uName);
-
-                activityTracker = new ActivityTracker(getApplicationContext(), uName);
-                activityTracker.updateActivity(uName + " signed in!");*/
 
             }
 

@@ -7,7 +7,6 @@
 
 package com.example.android.tileisland;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -23,7 +22,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import static android.R.attr.data;
 import static com.example.android.tileisland.UserSessionManagement.SHARED_PREF_FILENAME;
 
 public class GetKidReport extends AppCompatActivity {
@@ -68,7 +66,6 @@ public class GetKidReport extends AppCompatActivity {
 
     private float[] calculateData(float[] data) {
 
-        // TODO Auto-generated method stub
         float total=0;
         for(int i=0;i<data.length;i++)
         {
@@ -135,7 +132,7 @@ public class GetKidReport extends AppCompatActivity {
         }
         @Override
         protected void onDraw(Canvas canvas) {
-            // TODO Auto-generated method stub
+
             super.onDraw(canvas);
             int temp=0;
             for (int i = 0; i < value_degree.length; i++) {//values2.length; i++) {
