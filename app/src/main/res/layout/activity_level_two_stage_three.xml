@@ -144,20 +144,20 @@
             android:background="@mipmap/ic_path" />
 
         <ImageView
-            android:id="@+id/stagethree_coin2"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_marginLeft="193dp"
-            android:layout_marginTop="73dp"
-            android:background="@mipmap/ic_goldcoin" />
-
-        <ImageView
             android:id="@+id/pathtile5"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:layout_marginLeft="230dp"
             android:layout_marginTop="65dp"
             android:background="@mipmap/ic_path" />
+
+        <ImageView
+            android:id="@+id/stagethree_coin2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="239dp"
+            android:layout_marginTop="73dp"
+            android:background="@mipmap/ic_goldcoin" />
 
         <ImageView
             android:id="@+id/pathtile6"
@@ -242,6 +242,15 @@
             android:background="@mipmap/ic_path" />
 
         <ImageView
+            android:id="@+id/stagethree_coin4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="239dp"
+            android:layout_marginTop="163dp"
+            android:background="@mipmap/ic_goldcoin" />
+
+
+        <ImageView
             android:id="@+id/pathtile14"
             android:layout_width="55dp"
             android:layout_height="55dp"
@@ -322,6 +331,14 @@
             android:background="@mipmap/ic_path" />
 
         <ImageView
+            android:id="@+id/stagethree_coin5"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="148dp"
+            android:layout_marginTop="253dp"
+            android:background="@mipmap/ic_goldcoin" />
+
+        <ImageView
             android:id="@+id/pathtile22"
             android:layout_width="55dp"
             android:layout_height="55dp"
@@ -344,6 +361,14 @@
             android:layout_marginLeft="275dp"
             android:layout_marginTop="245dp"
             android:background="@mipmap/ic_path" />
+
+        <ImageView
+            android:id="@+id/stagethree_coin6"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="282dp"
+            android:layout_marginTop="253dp"
+            android:background="@mipmap/ic_goldcoin" />
 
         <ImageView
             android:id="@+id/pathtile25"
@@ -378,7 +403,7 @@
             android:background="@mipmap/ic_path" />
 
         <ImageView
-            android:id="@+id/stagethree_coin4"
+            android:id="@+id/stagethree_coin7"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginLeft="417dp"

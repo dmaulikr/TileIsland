@@ -141,6 +141,24 @@ public class LevelTwoStageThree extends AppCompatActivity {
         return actionSequenceThree;
     }
 
+    //check the selected move by the player and return the list
+    public ArrayList<String> getActionSequenceFour() {
+
+        String moveOne = (String) findViewById(R.id.firstAction).getContentDescription();
+        String moveTwo = (String) findViewById(R.id.secondAction).getContentDescription();
+        String moveThree = (String) findViewById(R.id.thirdAction).getContentDescription();
+        String moveFour = (String) findViewById(R.id.fourthAction).getContentDescription();
+        String moveFive = (String) findViewById(R.id.fifthAction).getContentDescription();
+
+        ArrayList<String> actionSequenceFour= new ArrayList<String>();
+        actionSequenceFour.add(moveOne);
+        actionSequenceFour.add(moveTwo);
+        actionSequenceFour.add(moveThree);
+        actionSequenceFour.add(moveFour);
+        actionSequenceFour.add(moveFive);
+        return actionSequenceFour;
+    }
+
     // animates the player as per the selected moves
     public void onPlayClick(View view) {
 
@@ -165,8 +183,175 @@ public class LevelTwoStageThree extends AppCompatActivity {
         requiredActionSequenceThree.add("down");
         requiredActionSequenceThree.add("right");
 
-        // checks if the reqired and selected sequence is correct
-        if (requiredActionSequenceThree.equals(actionSequenceThree)) {
+        ArrayList<String> actionSequenceFour = getActionSequenceFour();
+        //required sequence defined in the list
+        ArrayList<String> requiredActionSequenceFour = new ArrayList<String>();
+        requiredActionSequenceFour.add("right");
+        requiredActionSequenceFour.add("down");
+        requiredActionSequenceFour.add("left");
+        requiredActionSequenceFour.add("down");
+        requiredActionSequenceFour.add("right");
+
+        // checks if the required and selected sequence and move the player accordingly
+        if(requiredActionSequenceFour.equals(actionSequenceFour)){
+            ObjectAnimator actionOneAnimation = ObjectAnimator.ofFloat(player, "translationX", 0f, 950f);
+            ObjectAnimator actionTwoAnimation = ObjectAnimator.ofFloat(player, "translationY", 0f, 275f);
+            ObjectAnimator actionThreeAnimation = ObjectAnimator.ofFloat(player, "translationX", 950f, 0f);
+            ObjectAnimator actionFourAnimation = ObjectAnimator.ofFloat(player, "translationY", 275f, 550f);
+            ObjectAnimator actionFiveAnimation = ObjectAnimator.ofFloat(player, "translationX", 0f, 1300f);
+            set = new AnimatorSet();
+            set.setDuration(4000);
+            //animating all moves simultaneously
+            set.playSequentially(actionOneAnimation,
+                   actionTwoAnimation,
+                    actionThreeAnimation,
+                    actionFourAnimation,
+                    actionFiveAnimation);
+            set.start();
+
+            actionOneAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    float imageXPosition = (Float) animation.getAnimatedValue();
+                    if ((int) imageXPosition >= 280) {
+                        //coin music
+                        waves.start();
+                        //collecting coins
+                        findViewById(R.id.stagethree_coin1).setVisibility(View.INVISIBLE);
+                        //updating score
+                        coins = 1;
+                        updateScore();
+                    }
+                    if ((int) imageXPosition >= 400) {
+                        //coin music
+                        waves.start();
+                        //collecting coins
+                        findViewById(R.id.stagethree_coin2).setVisibility(View.INVISIBLE);
+                        //updating score
+                        coins = 2;
+                        updateScore();
+                    }
+                    if ((int) imageXPosition >= 870) {
+                        //coin music
+                        waves.start();
+                        //collecting coins
+                        findViewById(R.id.stagethree_coin3).setVisibility(View.INVISIBLE);
+                        //updating score
+                        coins = 3;
+                        updateScore();
+                    }
+                }
+            });
+
+            actionThreeAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    float imageXPosition = (Float) animation.getAnimatedValue();
+                    if ((int) imageXPosition <= 600) {
+                        //coin music
+                        waves.start();
+                        //collecting coins
+                        findViewById(R.id.stagethree_extraPoints1).setVisibility(View.INVISIBLE);
+                        //updating score
+                        extra = 1;
+                        updateScore();
+                    }
+                    if ((int) imageXPosition <= 500) {
+                        //coin music
+                        waves.start();
+                        //collecting coins
+                        findViewById(R.id.stagethree_coin4).setVisibility(View.INVISIBLE);
+                        //updating score
+                        coins = 4;
+                        updateScore();
+                    }
+                    if ((int) imageXPosition <= 250) {
+                        //coin music
+                        waves.start();
+                        //collecting coins
+                        findViewById(R.id.stagethree_extraPoints2).setVisibility(View.INVISIBLE);
+                        //updating score
+                        extra = 2;
+                        updateScore();
+                    }
+                }
+            });
+
+            actionFiveAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    float imageXPosition = (Float) animation.getAnimatedValue();
+                    if ((int) imageXPosition >= 10) {
+                        //coin music
+                        waves.start();
+                        //collecting coins
+                        findViewById(R.id.stagethree_extraPoints3).setVisibility(View.INVISIBLE);
+                        //updating score
+                        extra = 3;
+                        updateScore();
+                    }
+                    if ((int) imageXPosition >= 250) {
+                        //coin music
+                        waves.start();
+                        //collecting coins
+                        findViewById(R.id.stagethree_coin5).setVisibility(View.INVISIBLE);
+                        //updating score
+                        coins = 5;
+                        updateScore();
+                    }
+                    if ((int) imageXPosition >= 550) {
+                        //coin music
+                        waves.start();
+                        //collecting coins
+                        findViewById(R.id.stagethree_coin6).setVisibility(View.INVISIBLE);
+                        //updating score
+                        coins = 6;
+                        updateScore();
+                    }
+                    if ((int) imageXPosition >= 1000) {
+                        //coin music
+                        waves.start();
+                        //collecting coins
+                        findViewById(R.id.stagethree_coin7).setVisibility(View.INVISIBLE);
+                        //updating score
+                        coins = 7;
+                        updateScore();
+                    }
+                    if ((int) imageXPosition >= 1300) {
+
+                        // Dailouge for playing again the same level or next level
+                        AlertDialog.Builder alertadd = new AlertDialog.Builder(LevelTwoStageThree.this);
+                        LayoutInflater factory = LayoutInflater.from(LevelTwoStageThree.this);
+                        final View youwin = factory.inflate(R.layout.activity_winning, null);
+                        alertadd.setView(youwin);
+                        alertadd.setMessage("Score: " + score);
+                        alertadd.setPositiveButton("Play Again!", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dlg, int something) {
+                                Intent intent = new Intent(LevelTwoStageThree.this, LevelTwoStageThree.class);
+                                startActivity(intent);
+                            }
+                        });
+                        alertadd.setNegativeButton("End Game!", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dlg, int something) {
+                                Intent intent = new Intent(LevelTwoStageThree.this, WelcomeLevelOne.class);
+                                startActivity(intent);
+                            }
+                        });
+                        AlertDialog alert = alertadd.create();
+                        alert.show();
+                        waves = MediaPlayer.create(LevelTwoStageThree.this, R.raw.gameover);
+                        waves.start();
+
+                    }
+                }
+            });
+
+
+
+        }else if (requiredActionSequenceThree.equals(actionSequenceThree)) {
 
             ObjectAnimator actionOneAnimation = ObjectAnimator.ofFloat(player, "translationY", 0f, 275f);
             ObjectAnimator actionTwoAnimation = ObjectAnimator.ofFloat(player, "translationX", 0f, 950f);
@@ -185,6 +370,35 @@ public class LevelTwoStageThree extends AppCompatActivity {
 
                 @Override
                 public void onAnimationUpdate(ValueAnimator animation) {
+                    float imageXPosition = (Float) animation.getAnimatedValue();
+                    if ((int) imageXPosition >= 250) {
+                        //coin music
+                        waves.start();
+                        //collecting coins
+                        findViewById(R.id.stagethree_extraPoints2).setVisibility(View.INVISIBLE);
+                        //updating score
+                        extra = 1;
+                        updateScore();
+                    }
+                    if ((int) imageXPosition >= 500) {
+                        //coin music
+                        waves.start();
+                        //collecting coins
+                        findViewById(R.id.stagethree_coin4).setVisibility(View.INVISIBLE);
+                        //updating score
+                        coins = 1;
+                        updateScore();
+                    }
+
+                    if ((int) imageXPosition >= 600) {
+                        //coin music
+                        waves.start();
+                        //collecting coins
+                        findViewById(R.id.stagethree_extraPoints1).setVisibility(View.INVISIBLE);
+                        //updating score
+                        extra = 2;
+                        updateScore();
+                    }
                 }
             });
 
@@ -194,16 +408,16 @@ public class LevelTwoStageThree extends AppCompatActivity {
                 public void onAnimationUpdate(ValueAnimator animation) {
 
                     float imageXPosition = (Float) animation.getAnimatedValue();
-                    if ((int) imageXPosition >= 1200) {
+                    if ((int) imageXPosition >= 1000) {
                         //coin music
                         waves.start();
                         //collecting coins
-                        findViewById(R.id.stagethree_coin4).setVisibility(View.INVISIBLE);
+                        findViewById(R.id.stagethree_coin7).setVisibility(View.INVISIBLE);
                         //updating score
-                        coins = 4;
+                        coins = 2;
                         updateScore();
                     }
-                    if ((int) imageXPosition >= 1300) {
+                    if ((int) imageXPosition >= 1280) {
 
                         // Dailouge for playing again the same level or next level
                         AlertDialog.Builder alertadd = new AlertDialog.Builder(LevelTwoStageThree.this);
@@ -246,12 +460,12 @@ public class LevelTwoStageThree extends AppCompatActivity {
                     actionThreeAnimation);
             set.start();
 
-            actionThreeAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            actionOneAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
 
                 @Override
                 public void onAnimationUpdate(ValueAnimator animation) {
                     float imageXPosition = (Float) animation.getAnimatedValue();
-                    if ((int) imageXPosition >= 470) {
+                    if ((int) imageXPosition >= 280) {
                         //coin music
                         waves.start();
                         //collecting coins
@@ -260,7 +474,7 @@ public class LevelTwoStageThree extends AppCompatActivity {
                         coins = 1;
                         updateScore();
                     }
-                    if ((int) imageXPosition >= 570) {
+                    if ((int) imageXPosition >= 400) {
                         //coin music
                         waves.start();
                         //collecting coins
@@ -269,7 +483,7 @@ public class LevelTwoStageThree extends AppCompatActivity {
                         coins = 2;
                         updateScore();
                     }
-                    if ((int) imageXPosition >= 970) {
+                    if ((int) imageXPosition >= 870) {
                         //coin music
                         waves.start();
                         //collecting coins
@@ -285,11 +499,11 @@ public class LevelTwoStageThree extends AppCompatActivity {
                 @Override
                 public void onAnimationUpdate(ValueAnimator animation) {
                     float imageXPosition = (Float) animation.getAnimatedValue();
-                    if ((int) imageXPosition >= 1200) {
+                    if ((int) imageXPosition >= 1000) {
                         //coin music
                         waves.start();
                         //collecting coins
-                        findViewById(R.id.stagethree_coin4).setVisibility(View.INVISIBLE);
+                        findViewById(R.id.stagethree_coin7).setVisibility(View.INVISIBLE);
                         //updating score
                         coins = 4;
                         updateScore();
@@ -328,7 +542,7 @@ public class LevelTwoStageThree extends AppCompatActivity {
             ObjectAnimator actionOneAnimation = ObjectAnimator.ofFloat(player, "translationY", 0f, 550f);
             ObjectAnimator actionTwoAnimation = ObjectAnimator.ofFloat(player, "translationX", 150f, 1380f);
             set = new AnimatorSet();
-            set.setDuration(3000);
+            set.setDuration(4000);
             //animating all moves simultaneously
             set.playSequentially(actionOneAnimation,
                     actionTwoAnimation);
@@ -348,13 +562,31 @@ public class LevelTwoStageThree extends AppCompatActivity {
                         extra = 1;
                         updateScore();
                     }
-                    if ((int) imageXPosition >= 1200) {
+                    if ((int) imageXPosition >= 250) {
                         //coin music
                         waves.start();
                         //collecting coins
-                        findViewById(R.id.stagethree_coin4).setVisibility(View.INVISIBLE);
+                        findViewById(R.id.stagethree_coin5).setVisibility(View.INVISIBLE);
                         //updating score
                         coins = 1;
+                        updateScore();
+                    }
+                    if ((int) imageXPosition >= 550) {
+                        //coin music
+                        waves.start();
+                        //collecting coins
+                        findViewById(R.id.stagethree_coin6).setVisibility(View.INVISIBLE);
+                        //updating score
+                        coins = 2;
+                        updateScore();
+                    }
+                    if ((int) imageXPosition >= 1000) {
+                        //coin music
+                        waves.start();
+                        //collecting coins
+                        findViewById(R.id.stagethree_coin7).setVisibility(View.INVISIBLE);
+                        //updating score
+                        coins = 3;
                         updateScore();
                     }
                     if ((int) imageXPosition >= 1300) {
