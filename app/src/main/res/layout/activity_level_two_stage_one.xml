@@ -110,17 +110,19 @@
 
         <ImageView
             android:id="@+id/stageone_coin1"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="80dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="95dp"
             android:layout_toRightOf="@+id/pathtile2"
             android:background="@mipmap/ic_goldcoin"/>
 
         <ImageView
             android:id="@+id/stageone_block1"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="80dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="95dp"
+            android:layout_marginLeft="15dp"
             android:layout_toRightOf="@+id/pathtile2"
             android:background="@drawable/block"/>
 

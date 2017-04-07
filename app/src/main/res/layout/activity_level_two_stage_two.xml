@@ -66,6 +66,25 @@
             android:textStyle="bold"/>
 
         <ImageView
+            android:id="@+id/stagetwo_extrapoints_score"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="450dp"
+            android:layout_marginTop="200dp"
+            android:background="@drawable/extrapoint"/>
+
+        <TextView
+            android:id="@+id/extrapoints_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="510dp"
+            android:layout_marginTop="200dp"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:text="@string/colon"/>
+
+        <ImageView
             android:id="@+id/player"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -138,13 +157,6 @@
             android:layout_marginTop="105dp"
             android:background="@mipmap/ic_goldcoin"/>
 
-        <ImageView
-            android:id="@+id/stageone_block1"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginLeft="250dp"
-            android:layout_marginTop="95dp"
-            android:background="@drawable/block"/>
 
         <ImageView
             android:id="@+id/pathtile7"
@@ -153,13 +165,6 @@
             android:layout_marginLeft="300dp"
             android:layout_marginTop="90dp"
             android:background="@mipmap/ic_path"/>
-        <ImageView
-            android:id="@+id/stagetwo_coin4"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="315dp"
-            android:layout_marginTop="105dp"
-            android:background="@mipmap/ic_goldcoin"/>
 
         <ImageView
             android:id="@+id/pathtile8"
@@ -170,28 +175,12 @@
             android:background="@mipmap/ic_path"/>
 
         <ImageView
-            android:id="@+id/stagetwo_coin5"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="370dp"
-            android:layout_marginTop="105dp"
-            android:background="@mipmap/ic_goldcoin"/>
-
-        <ImageView
             android:id="@+id/pathtile9"
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:layout_marginLeft="355dp"
             android:layout_marginTop="145dp"
             android:background="@mipmap/ic_path"/>
-
-        <ImageView
-            android:id="@+id/stagetwo_coin6"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginLeft="370dp"
-            android:layout_marginTop="160dp"
-            android:background="@mipmap/ic_goldcoin"/>
 
         <ImageView
             android:id="@+id/pathtile10"
@@ -218,7 +207,7 @@
             android:background="@mipmap/ic_path"/>
 
         <ImageView
-            android:id="@+id/stagetwo_coin7"
+            android:id="@+id/stagetwo_coin4"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginLeft="425dp"
@@ -234,7 +223,48 @@
             android:background="@mipmap/ic_path"/>
 
         <ImageView
-            android:id="@+id/stagetwo_coin8"
+            android:id="@+id/pathtile14"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="135dp"
+            android:layout_marginTop="255dp"
+            android:background="@mipmap/ic_path"/>
+
+        <ImageView
+            android:id="@+id/pathtile15"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="190dp"
+            android:layout_marginTop="255dp"
+            android:background="@mipmap/ic_path"/>
+
+        <ImageView
+            android:id="@+id/pathtile16"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="245dp"
+            android:layout_marginTop="255dp"
+            android:background="@mipmap/ic_path"/>
+
+        <ImageView
+            android:id="@+id/stagetwo_extrapoints"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="260dp"
+            android:layout_marginTop="270dp"
+            android:background="@drawable/extrapoint"/>
+
+        <ImageView
+            android:id="@+id/pathtile17"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginLeft="300dp"
+            android:layout_marginTop="255dp"
+            android:background="@mipmap/ic_path"/>
+
+
+        <ImageView
+            android:id="@+id/stagetwo_coin5"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginLeft="480dp"

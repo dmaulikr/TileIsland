@@ -34,9 +34,10 @@ public class LevelTwoStageTwo extends AppCompatActivity {
     ImageView player;
     MediaPlayer waves;
     AnimatorSet set;
-    TextView coinsCollected, totalScore;
+    TextView coinsCollected, totalScore, extraScore;
     int score;
     int coins;
+    int extra;
 
 
     @Override
@@ -69,8 +70,10 @@ public class LevelTwoStageTwo extends AppCompatActivity {
         //updating score as per the coins are collected
         score = 0;
         coins = 0;
+        extra = 0;
         coinsCollected = (TextView) findViewById(R.id.coinsCollected);
         totalScore = (TextView) findViewById(R.id.score);
+        extraScore = (TextView) findViewById(R.id.extrapoints_score);
         updateScore();
 
         //initializing music for coin pickup
@@ -80,9 +83,10 @@ public class LevelTwoStageTwo extends AppCompatActivity {
 
     //updating score simultaneously coins are collected
     private void updateScore() {
-        score = coins*1000;
+        score = coins * 1000 + extra * 5000;
         coinsCollected.setText(Integer.toString(coins));
         totalScore.setText(Integer.toString(score));
+        extraScore.setText(Integer.toString(extra));
     }
 
     //navigates to previous activity
@@ -92,7 +96,7 @@ public class LevelTwoStageTwo extends AppCompatActivity {
     }
 
     //check the selected move by the player and return the list
-    public ArrayList<String> getActionSequence() {
+    public ArrayList<String> getActionSequenceOne() {
 
         String moveOne = (String) findViewById(R.id.firstAction).getContentDescription();
         String moveTwo = (String) findViewById(R.id.secondAction).getContentDescription();
@@ -103,49 +107,70 @@ public class LevelTwoStageTwo extends AppCompatActivity {
         ArrayList<String> actionSequence = new ArrayList<String>();
         actionSequence.add(moveOne);
         actionSequence.add(moveTwo);
-        /*actionSequence.add(moveThree);
+        actionSequence.add(moveThree);
         actionSequence.add(moveFour);
-        actionSequence.add(moveFive);*/
+        actionSequence.add(moveFive);
+        return actionSequence;
+    }
+
+    //check the selected move by the player and return the list
+    public ArrayList<String> getActionSequenceTwo() {
+
+        String moveOne = (String) findViewById(R.id.firstAction).getContentDescription();
+        String moveTwo = (String) findViewById(R.id.secondAction).getContentDescription();
+        String moveThree = (String) findViewById(R.id.thirdAction).getContentDescription();
+
+        ArrayList<String> actionSequence = new ArrayList<String>();
+        actionSequence.add(moveOne);
+        actionSequence.add(moveTwo);
+        actionSequence.add(moveThree);
         return actionSequence;
     }
 
     // animates the player as per the selected moves
     public void onPlayClick(View view) {
 
-        ArrayList<String> actionSequence = getActionSequence();
+        ArrayList<String> actionSequenceOne = getActionSequenceOne();
+        ArrayList<String> actionSequenceTwo = getActionSequenceTwo();
 
-        //required sequence defined in the list
-        ArrayList<String> requiredActionSequence = new ArrayList<String>();
-        requiredActionSequence.add("right");
-        requiredActionSequence.add("up");
-        /*requiredActionSequence.add("right");
-        requiredActionSequence.add("down");
-        requiredActionSequence.add("right");
-*/
-        // checks if the reqired and selected sequence is correct
-        if (requiredActionSequence.equals(actionSequence)) {
+        //required sequence one defined in the list
+        ArrayList<String> requiredActionSequenceOne = new ArrayList<String>();
+        requiredActionSequenceOne.add("right");
+        requiredActionSequenceOne.add("up");
+        requiredActionSequenceOne.add("right");
+        requiredActionSequenceOne.add("down");
+        requiredActionSequenceOne.add("right");
+
+        //required sequence one defined in the list
+        ArrayList<String> requiredActionSequenceTwo = new ArrayList<String>();
+        requiredActionSequenceTwo.add("right");
+        requiredActionSequenceTwo.add("down");
+        requiredActionSequenceTwo.add("right");
+
+        // checks if the reqired sequence One and selected sequence is correct
+        if (requiredActionSequenceOne.equals(actionSequenceOne)) {
 
             ObjectAnimator actionOneAnimation = ObjectAnimator.ofFloat(player, "translationX", 0f, 330f);
-            ObjectAnimator actionTwoAnimation = ObjectAnimator.ofFloat(player, "translationY", 330f, 0f);
-            /*ObjectAnimator actionThreeAnimation = ObjectAnimator.ofFloat(player, "translationX", 430f, 670f);
-            ObjectAnimator actionFourAnimation = ObjectAnimator.ofFloat(player, "translationY", 240f, 474f);
-            ObjectAnimator actionFiveAnimation = ObjectAnimator.ofFloat(player, "translationX", 670f, 1340f);*/
+            ObjectAnimator actionTwoAnimation = ObjectAnimator.ofFloat(player, "translationY", 0f, -330f);
+            ObjectAnimator actionThreeAnimation = ObjectAnimator.ofFloat(player, "translationX", 330f, 990f);
+            ObjectAnimator actionFourAnimation = ObjectAnimator.ofFloat(player, "translationY", -330f, 175f);
+            ObjectAnimator actionFiveAnimation = ObjectAnimator.ofFloat(player, "translationX", 990f, 1480f);
             set = new AnimatorSet();
-            set.setDuration(3000);
+            set.setDuration(4000);
 
             //animating all moves simultaneously
             set.playSequentially(actionOneAnimation,
-                    actionTwoAnimation
-                    /*actionThreeAnimation,
+                    actionTwoAnimation,
+                    actionThreeAnimation,
                     actionFourAnimation,
-                    actionFiveAnimation*/);
+                    actionFiveAnimation);
             set.start();
-            actionTwoAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener(){
+            actionTwoAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
 
                 @Override
                 public void onAnimationUpdate(ValueAnimator animation) {
                     float imageYPosition = (Float) animation.getAnimatedValue();
-                    if (imageYPosition >= 240) {
+                    if (imageYPosition <= -100) {
                         //coin music
                         waves.start();
                         //collecting coins
@@ -157,23 +182,21 @@ public class LevelTwoStageTwo extends AppCompatActivity {
 
                 }
             });
-            /*actionFiveAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            actionThreeAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
 
                 @Override
                 public void onAnimationUpdate(ValueAnimator animation) {
                     float imageXPosition = (Float) animation.getAnimatedValue();
-
-                    if (imageXPosition >= 670) {
+                    if (imageXPosition >= 420) {
                         //coin music
                         waves.start();
                         //collecting coins
                         findViewById(R.id.stagetwo_coin2).setVisibility(View.INVISIBLE);
                         //updating score
-                        //updating score
                         coins = 2;
                         updateScore();
                     }
-                    if ((int) imageXPosition >= 870) {
+                    if (imageXPosition >= 570) {
                         //coin music
                         waves.start();
                         //collecting coins
@@ -182,13 +205,31 @@ public class LevelTwoStageTwo extends AppCompatActivity {
                         coins = 3;
                         updateScore();
                     }
-                    if ((int) imageXPosition >= 1120) {
+
+                }
+            });
+            actionFiveAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    float imageXPosition = (Float) animation.getAnimatedValue();
+
+                    if (imageXPosition >= 970) {
                         //coin music
                         waves.start();
                         //collecting coins
                         findViewById(R.id.stagetwo_coin4).setVisibility(View.INVISIBLE);
                         //updating score
                         coins = 4;
+                        updateScore();
+                    }
+                    if ((int) imageXPosition >= 1170) {
+                        //coin music
+                        waves.start();
+                        //collecting coins
+                        findViewById(R.id.stagetwo_coin5).setVisibility(View.INVISIBLE);
+                        //updating score
+                        coins = 5;
                         updateScore();
                     }
                     if ((int) imageXPosition == 1340) {
@@ -198,7 +239,7 @@ public class LevelTwoStageTwo extends AppCompatActivity {
                         LayoutInflater factory = LayoutInflater.from(LevelTwoStageTwo.this);
                         final View youwin = factory.inflate(R.layout.activity_winning, null);
                         alertadd.setView(youwin);
-                        alertadd.setMessage("Score: "+ score);
+                        alertadd.setMessage("Score: " + score);
                         alertadd.setPositiveButton("Play Again!", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dlg, int something) {
                                 Intent intent = new Intent(LevelTwoStageTwo.this, LevelTwoStageTwo.class);
@@ -219,7 +260,86 @@ public class LevelTwoStageTwo extends AppCompatActivity {
                     }
                 }
 
-            });*/
+            });
+
+        }
+        // checks if the reqired sequence Two and selected sequence is correct
+        else if (requiredActionSequenceTwo.equals(actionSequenceTwo)) {
+
+            ObjectAnimator actionOneAnimation = ObjectAnimator.ofFloat(player, "translationX", 0f, 330f);
+            ObjectAnimator actionTwoAnimation = ObjectAnimator.ofFloat(player, "translationY", 0f, 180f);
+            ObjectAnimator actionThreeAnimation = ObjectAnimator.ofFloat(player, "translationX", 330f, 1480f);
+            set = new AnimatorSet();
+            set.setDuration(3000);
+
+            //animating all moves simultaneously
+            set.playSequentially(actionOneAnimation,
+                    actionTwoAnimation,
+                    actionThreeAnimation);
+            set.start();
+
+            actionThreeAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+
+                @Override
+                public void onAnimationUpdate(ValueAnimator animation) {
+                    float imageXPosition = (Float) animation.getAnimatedValue();
+
+                    if (imageXPosition >= 570) {
+                        //coin music
+                        waves.start();
+                        //collecting coins
+                        findViewById(R.id.stagetwo_extrapoints).setVisibility(View.INVISIBLE);
+                        //updating score
+                        extra = 1;
+                        updateScore();
+                    }
+                    if (imageXPosition >= 970) {
+                        //coin music
+                        waves.start();
+                        //collecting coins
+                        findViewById(R.id.stagetwo_coin4).setVisibility(View.INVISIBLE);
+                        //updating score
+                        coins = 1;
+                        updateScore();
+                    }
+                    if ((int) imageXPosition >= 1170) {
+                        //coin music
+                        waves.start();
+                        //collecting coins
+                        findViewById(R.id.stagetwo_coin5).setVisibility(View.INVISIBLE);
+                        //updating score
+                        coins = 2;
+                        updateScore();
+                    }
+                    if ((int) imageXPosition == 1340) {
+
+                        // Dailouge for playing again the same level or next level
+                        AlertDialog.Builder alertadd = new AlertDialog.Builder(LevelTwoStageTwo.this);
+                        LayoutInflater factory = LayoutInflater.from(LevelTwoStageTwo.this);
+                        final View youwin = factory.inflate(R.layout.activity_winning, null);
+                        alertadd.setView(youwin);
+                        alertadd.setMessage("Score: " + score);
+                        alertadd.setPositiveButton("Play Again!", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dlg, int something) {
+                                Intent intent = new Intent(LevelTwoStageTwo.this, LevelTwoStageTwo.class);
+                                startActivity(intent);
+                            }
+                        });
+                        alertadd.setNegativeButton("Next Level >>", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dlg, int something) {
+                                Intent intent = new Intent(LevelTwoStageTwo.this, LevelTwoStageThree.class);
+                                startActivity(intent);
+                            }
+                        });
+                        AlertDialog alert = alertadd.create();
+                        alert.show();
+                        waves = MediaPlayer.create(LevelTwoStageTwo.this, R.raw.gameover);
+                        waves.start();
+
+                    }
+                }
+
+            });
 
         } else {
             AlertDialog alertDialog = new AlertDialog.Builder(this).create();
@@ -237,7 +357,7 @@ public class LevelTwoStageTwo extends AppCompatActivity {
 
     // Restarts the same activity
     public void onStopClick(View view) {
-        Intent intent = new Intent(this,LevelOneStageTwo.class);
+        Intent intent = new Intent(this, LevelOneStageTwo.class);
         startActivity(intent);
 
     }
