@@ -259,7 +259,7 @@ public class LevelOneStageTwo extends AppCompatActivity {
 
     }
 
-    //game exit
+    //game ic_exit
     public void onExitClick(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

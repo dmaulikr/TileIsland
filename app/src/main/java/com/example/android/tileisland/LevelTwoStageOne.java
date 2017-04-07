@@ -31,6 +31,9 @@ import static android.R.attr.animation;
 
 public class LevelTwoStageOne extends AppCompatActivity {
 
+    // User Session Manager Class
+    UserSessionManagement session;
+    ActivityTracker activityTracker;
 
     StartDraggingLsntr myStartDraggingLsntr;
     EndDraggingLsntr myEndDraggingLsntr;
@@ -41,12 +44,18 @@ public class LevelTwoStageOne extends AppCompatActivity {
     TextView coinsCollected, totalScore;
     int score;
     int coins;
+    String logInKid;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_two_stage_one);
+
+        // Session class instance
+        session = new UserSessionManagement(getApplicationContext());
+
+        logInKid = session.getUserDetails();
 
         //listeners for drag and drop
         myStartDraggingLsntr = new StartDraggingLsntr();
@@ -205,6 +214,10 @@ public class LevelTwoStageOne extends AppCompatActivity {
                         updateScore();
                     }
                     if ((int) imageXPosition == 1340) {
+
+                        activityTracker = new ActivityTracker(getApplicationContext(), logInKid);
+                        activityTracker.updateActivity("LevelTwoStageOne", String.valueOf(score));
+
                         // Dailouge for playing again the same level or next level
                         AlertDialog.Builder alertadd = new AlertDialog.Builder(LevelTwoStageOne.this);
                         LayoutInflater factory = LayoutInflater.from(LevelTwoStageOne.this);
@@ -234,6 +247,9 @@ public class LevelTwoStageOne extends AppCompatActivity {
             });
 
         } else {
+            activityTracker = new ActivityTracker(getApplicationContext(), logInKid);
+            activityTracker.updateActivity("LevelTwoStageOne", String.valueOf(score));
+
             AlertDialog alertDialog = new AlertDialog.Builder(this).create();
             alertDialog.setMessage("Please select correct sequence!");
             alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Ok", new DialogInterface.OnClickListener() {
@@ -255,7 +271,7 @@ public class LevelTwoStageOne extends AppCompatActivity {
 
     }
 
-    //game exit
+    //game ic_exit
     public void onExitClick(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

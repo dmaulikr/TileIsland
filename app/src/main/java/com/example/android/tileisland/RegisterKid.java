@@ -20,6 +20,11 @@ public class RegisterKid extends AppCompatActivity {
 
     //TODO:add back button and functionality
 
+    // User Session Manager Class
+    UserSessionManagement session;
+    // User Activity Tracker Class
+    ActivityTracker activityTracker;
+
     private KidsDBHelper dbHelper;
 
     private EditText etFirstName;
@@ -30,6 +35,9 @@ public class RegisterKid extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_kid);
+
+        // UserSession Manager
+        session = new UserSessionManagement(getApplicationContext());
 
         // Create database helper
         dbHelper = new KidsDBHelper(this);
@@ -75,10 +83,9 @@ public class RegisterKid extends AppCompatActivity {
                         });
                         alertDialog.show();
                     } else {
-                       /* session.createUserLoginSession(regUsernameStr);
-                        activityTracker = new ActivityTracker(getApplicationContext(), regUsernameStr);
-                        activityTracker.updateActivity(regUsernameStr + " registered!");*/
-                        // Student Registration is successful after passing all the validations
+                        session.createUserLoginSession(firstName);
+                        activityTracker = new ActivityTracker(getApplicationContext(), firstName);
+                        // kid's Registration is successful after passing all the validations
                         Intent intent = new Intent(RegisterKid.this, WelcomeLevelOne.class);
                         startActivity(intent);
                     }

@@ -27,6 +27,9 @@ import java.util.ArrayList;
 
 public class LevelTwoStageTwo extends AppCompatActivity {
 
+    // User Session Manager Class
+    UserSessionManagement session;
+    ActivityTracker activityTracker;
 
     StartDraggingLsntr myStartDraggingLsntr;
     EndDraggingLsntr myEndDraggingLsntr;
@@ -38,12 +41,18 @@ public class LevelTwoStageTwo extends AppCompatActivity {
     int score;
     int coins;
     int extra;
+    String logInKid;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level_two_stage_two);
+
+        // Session class instance
+        session = new UserSessionManagement(getApplicationContext());
+
+        logInKid = session.getUserDetails();
 
         //listeners for drag and drop
         myStartDraggingLsntr = new StartDraggingLsntr();
@@ -233,6 +242,8 @@ public class LevelTwoStageTwo extends AppCompatActivity {
                         updateScore();
                     }
                     if ((int) imageXPosition == 1340) {
+                        activityTracker = new ActivityTracker(getApplicationContext(), logInKid);
+                        activityTracker.updateActivity("LevelTwoStageTwo", String.valueOf(score));
 
                         // Dailouge for playing again the same level or next level
                         AlertDialog.Builder alertadd = new AlertDialog.Builder(LevelTwoStageTwo.this);
@@ -312,6 +323,8 @@ public class LevelTwoStageTwo extends AppCompatActivity {
                         updateScore();
                     }
                     if ((int) imageXPosition == 1340) {
+                        activityTracker = new ActivityTracker(getApplicationContext(), logInKid);
+                        activityTracker.updateActivity("LevelTwoStageTwo", String.valueOf(score));
 
                         // Dailouge for playing again the same level or next level
                         AlertDialog.Builder alertadd = new AlertDialog.Builder(LevelTwoStageTwo.this);
@@ -342,6 +355,9 @@ public class LevelTwoStageTwo extends AppCompatActivity {
             });
 
         } else {
+            activityTracker = new ActivityTracker(getApplicationContext(), logInKid);
+            activityTracker.updateActivity("LevelTwoStageTwo", String.valueOf(score));
+
             AlertDialog alertDialog = new AlertDialog.Builder(this).create();
             alertDialog.setMessage("Please select correct sequence!");
             alertDialog.setButton(DialogInterface.BUTTON_POSITIVE, "Ok", new DialogInterface.OnClickListener() {
@@ -362,7 +378,7 @@ public class LevelTwoStageTwo extends AppCompatActivity {
 
     }
 
-    //game exit
+    //game ic_exit
     public void onExitClick(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
