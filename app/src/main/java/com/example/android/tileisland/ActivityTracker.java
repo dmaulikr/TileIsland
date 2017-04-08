@@ -2,6 +2,7 @@ package com.example.android.tileisland;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 import static com.example.android.tileisland.R.id.score;
+import static java.lang.Integer.parseInt;
 
 
 public class ActivityTracker {
@@ -36,6 +38,7 @@ public class ActivityTracker {
     // Constructor
     public ActivityTracker(Context context, String userName) {
         this.context = context;
+        Toast.makeText(context, "Activity tracker: " + userName, Toast.LENGTH_SHORT).show();
         sharedPreferences = context.getSharedPreferences(SHARED_ACTIVITY_FILENAME + "_" + userName, Context.MODE_APPEND);
         editor = sharedPreferences.edit();
 
@@ -43,7 +46,6 @@ public class ActivityTracker {
 
     public void updateActivity(String stage, String score) {
         //Using Shared Preference
-        //String currentDateTimeStr = DateFormat.getDateTimeInstance().format(new Date());
         editor.putString(stage + "_attempt" + ActivityTracker.count++, score);
         editor.commit();
     }
@@ -51,64 +53,31 @@ public class ActivityTracker {
     /*
      * Get stored session data
      */
-    public static ArrayList<String> getListFromSP(Context context, String userName, String key) {
-
-        SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_ACTIVITY_FILENAME + "_" + userName,
-                Context.MODE_PRIVATE);
-        Map<String, ?> map = sharedPreferences.getAll();
-        ArrayList<String> lst = new ArrayList<>();
-        StringBuilder builder = new StringBuilder();
-
-        for (String str : map.keySet()) {
-            if (str.startsWith(key))
-                lst.add((String) map.get(str));
-        }
-
-        /*Collections.sort(lst, new Comparator<String>() {
-            @Override
-            public int compare(String s1, String s2) {
-                return s1.compareToIgnoreCase(s2);
-            }
-        });*/
-
-       /* for (String str : lst) {
-            if (builder.length() > 0) {
-                builder.append("\n");
-            }
-            builder.append(str);
-        }*/
-
-        //return builder.toString();
-        return lst;
-    }
-
     public static ArrayList<String> getAllScores(Context context, String userName) {
 
         SharedPreferences sharedPreferences = context.getSharedPreferences(SHARED_ACTIVITY_FILENAME + "_" + userName,
                 Context.MODE_PRIVATE);
         Map<String, ?> map = sharedPreferences.getAll();
         ArrayList<String> lst = new ArrayList<>();
-        StringBuilder builder = new StringBuilder();
 
         for (String str : map.keySet()) {
             lst.add((String) map.get(str));
         }
 
-        /*Collections.sort(lst, new Comparator<String>() {
-            @Override
-            public int compare(String s1, String s2) {
-                return s1.compareToIgnoreCase(s2);
-            }
-        });*/
+        return lst;
+    }
 
-       /* for (String str : lst) {
-            if (builder.length() > 0) {
-                builder.append("\n");
-            }
-            builder.append(str);
-        }*/
+    public static ArrayList<String> getAllKidsScores(Context context,String filname) {
 
-        //return builder.toString();
+        SharedPreferences sharedPreferences = context.getSharedPreferences(filname,
+                Context.MODE_PRIVATE);
+        Map<String, ?> map = sharedPreferences.getAll();
+        ArrayList<String> lst = new ArrayList<>();
+
+        for (String str : map.keySet()) {
+            lst.add((String) map.get(str));
+        }
+
         return lst;
     }
 }

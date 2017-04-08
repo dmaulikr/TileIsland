@@ -32,4 +32,5 @@
     <string name="your_child_report">Your Child\'s Report !</string>
     <string name="colon"> :</string>
     <string name="get_leader_board">Leader Board!</string>
+    <string name="leader_board">Leader Board</string>
 </resources>

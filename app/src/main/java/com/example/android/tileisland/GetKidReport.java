@@ -114,6 +114,11 @@ public class GetKidReport extends AppCompatActivity {
         System.exit(0);
     }
 
+    public void onLeaderBoardClick(View view) {
+        Intent intent = new Intent(this,LeaderBoard.class);
+        startActivity(intent);
+    }
+
     public class MyGraphView extends View {
 
                private Paint paint=new Paint(Paint.ANTI_ALIAS_FLAG);

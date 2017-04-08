@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.android.tileisland.utils.KidsContract.KidEntry;
 import com.example.android.tileisland.utils.KidsDBHelper;
@@ -81,6 +82,7 @@ public class RegisterKid extends AppCompatActivity {
                         });
                         alertDialog.show();
                     } else {
+                        Toast.makeText(getApplicationContext(), "register: " + firstName, Toast.LENGTH_SHORT).show();
                         session.createUserLoginSession(firstName);
                         activityTracker = new ActivityTracker(getApplicationContext(), firstName);
                         // kid's Registration is successful after passing all the validations

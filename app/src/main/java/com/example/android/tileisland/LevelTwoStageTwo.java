@@ -241,7 +241,7 @@ public class LevelTwoStageTwo extends AppCompatActivity {
                         coins = 5;
                         updateScore();
                     }
-                    if ((int) imageXPosition == 1340) {
+                    if ((int) imageXPosition >= 1340) {
                         activityTracker = new ActivityTracker(getApplicationContext(), logInKid);
                         activityTracker.updateActivity("LevelTwoStageTwo", String.valueOf(score));
 
@@ -322,7 +322,7 @@ public class LevelTwoStageTwo extends AppCompatActivity {
                         coins = 2;
                         updateScore();
                     }
-                    if ((int) imageXPosition == 1340) {
+                    if ((int) imageXPosition >= 1340) {
                         activityTracker = new ActivityTracker(getApplicationContext(), logInKid);
                         activityTracker.updateActivity("LevelTwoStageTwo", String.valueOf(score));
 
